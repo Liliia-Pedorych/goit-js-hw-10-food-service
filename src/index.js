@@ -17,11 +17,13 @@ const refs = {
 }
 
 const savedTheme = localStorage.getItem('Theme');
+const parsedSavedTheme = JSON.parse(savedTheme);
+
 
 refs.menu.insertAdjacentHTML('beforeend', markup);
 refs.body.classList.add(Theme.LIGHT);
 
-if (savedTheme.slice(1,-1) !== refs.body.classList.value) {
+if (parsedSavedTheme !== refs.body.classList.value) {
     refs.body.classList.replace(Theme.LIGHT, Theme.DARK);
     refs.theme.checked = true;
 }
