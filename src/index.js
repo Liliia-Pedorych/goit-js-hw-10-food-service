@@ -21,10 +21,15 @@ const savedTheme = localStorage.getItem('Theme');
 refs.menu.insertAdjacentHTML('beforeend', markup);
 refs.body.classList.add(Theme.LIGHT);
 
-if (savedTheme.slice(1,-1) === "dark-theme") {
+if (savedTheme.slice(1,-1) !== refs.body.classList.value) {
     refs.body.classList.replace(Theme.LIGHT, Theme.DARK);
     refs.theme.checked = true;
 }
+
+// if (savedTheme.slice(1,-1) === "dark-theme") {
+//     refs.body.classList.replace(Theme.LIGHT, Theme.DARK);
+//     refs.theme.checked = true;
+// }
 
 refs.theme.addEventListener('change', () => {
     if (refs.body.classList.contains(Theme.LIGHT)) {
